@@ -24,11 +24,14 @@ body {
 body::before {
     content: "";
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='1200' height='1200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeGaussianBlur stdDeviation='10'/%3E%3C/filter%3E%3Cg fill='%23ffffff' opacity='0.1' filter='url(%23f)'%3E%3Cpath transform='translate(200,200) scale(6) rotate(25)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(800,700) scale(8) rotate(-15)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(900,150) scale(5) rotate(45)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(150,900) scale(7) rotate(-35)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3C/g%3E%3C/svg%3E");
+    top: -20px; left: -20px; right: -20px; bottom: -20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='1200' height='1200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' opacity='0.1'%3E%3Cpath transform='translate(200,200) scale(6) rotate(25)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(800,700) scale(8) rotate(-15)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(900,150) scale(5) rotate(45)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(150,900) scale(7) rotate(-35)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 1200px 1200px;
     z-index: -2;
     pointer-events: none;
+    filter: blur(10px);
+    transform: translateZ(0); /* Hardware acceleration */
+    will-change: background-position;
     animation: panHuge 60s linear infinite;
 }
 
@@ -36,11 +39,14 @@ body::before {
 body::after {
     content: "";
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f2'%3E%3CfeGaussianBlur stdDeviation='3'/%3E%3C/filter%3E%3Cg fill='%23ffe6ea' opacity='0.2' filter='url(%23f2)'%3E%3Cpath transform='translate(150,150) scale(2.5) rotate(-20)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(500,400) scale(3) rotate(35)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(300,700) scale(2) rotate(-10)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(700,100) scale(2.8) rotate(25)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(650,650) scale(1.8) rotate(-40)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3C/g%3E%3C/svg%3E");
+    top: -10px; left: -10px; right: -10px; bottom: -10px;
+    background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffe6ea' opacity='0.2'%3E%3Cpath transform='translate(150,150) scale(2.5) rotate(-20)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(500,400) scale(3) rotate(35)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(300,700) scale(2) rotate(-10)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(700,100) scale(2.8) rotate(25)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3Cpath transform='translate(650,650) scale(1.8) rotate(-40)' d='M0,15 A15,15 0,0,1 30,15 A15,15 0,0,1 60,15 Q60,40 30,70 Q0,40 0,15 Z'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 800px 800px;
     z-index: -1;
     pointer-events: none;
+    filter: blur(3px);
+    transform: translateZ(0); /* Hardware acceleration */
+    will-change: background-position;
     animation: panMedium 40s linear infinite;
 }
 
@@ -161,17 +167,18 @@ body::after {
 /* Floating JS Particles (Hearts, Sparkles) */
 .bg-heart {
     position: fixed;
-    /* Adorable white/pink floating hearts */
     opacity: 0.6;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* text-shadow is much faster than filter: drop-shadow on mobile */
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: transform, opacity;
     animation: floatRomantic linear infinite;
     pointer-events: none;
     z-index: 0;
 }
 
 @keyframes floatRomantic {
-    0% { transform: translateY(110vh) rotate(0deg) scale(0.5); opacity: 0; }
+    0% { transform: translate3d(0, 110vh, 0) rotate(0deg) scale(0.5); opacity: 0; }
     15% { opacity: 0.8; }
     85% { opacity: 0.6; }
-    100% { transform: translateY(-10vh) rotate(360deg) scale(1.5); opacity: 0; }
+    100% { transform: translate3d(0, -10vh, 0) rotate(360deg) scale(1.5); opacity: 0; }
 }
