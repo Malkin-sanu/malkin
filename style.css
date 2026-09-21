@@ -50,6 +50,18 @@ body::after {
     animation: panMedium 40s linear infinite;
 }
 
+@media (max-width: 767px) {
+    body::before, body::after {
+        filter: none;
+        opacity: 0.05; /* Faint visibility since blur is removed */
+        animation-duration: 90s; /* Slower, less distracting animation */
+    }
+}
+
+.pause-animations, .pause-animations * {
+    animation-play-state: paused !important;
+}
+
 @keyframes panHuge {
     from { background-position: 0 0; }
     to { background-position: 1200px -1200px; }

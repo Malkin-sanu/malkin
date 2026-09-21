@@ -1,6 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Background Floating Hearts effect
-    createFloatingHearts();
+    const isMobile = window.innerWidth < 768;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Background Floating Hearts effect - only if not strictly reduced motion
+    if (!prefersReducedMotion) {
+        createFloatingHearts(isMobile);
+    }
+
+    // Pause animations when tab is not visible to save CPU/battery
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            document.body.classList.add('pause-animations');
+        } else {
+            document.body.classList.remove('pause-animations');
+        }
+    });
 
     // Cake Candle Logic
     const candles = document.querySelectorAll('.candle');
@@ -33,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (finalMessage) {
                                 finalMessage.classList.add('show');
                             }
-                            launchHeartConfetti();
+                            if (!prefersReducedMotion) {
+                                launchHeartConfetti(isMobile);
+                            }
                         }, 500);
                     }
                 }
@@ -44,17 +60,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes fadeOutUp {
-            0% { opacity: 0.7; transform: translateY(0) scale(1); }
-            100% { opacity: 0; transform: translateY(-50px) scale(3); }
+            0% { opacity: 0.7; transform: translate3d(0, 0, 0) scale(1); }
+            100% { opacity: 0; transform: translate3d(0, -50px, 0) scale(3); }
         }
     `;
     document.head.appendChild(style);
 });
 
-function createFloatingHearts() {
+function createFloatingHearts(isMobile) {
     const container = document.body;
     const heartsList = ['❤️', '💖', '💕', '💑', '👩‍❤️‍👨', '🌹', '✨'];
-    for(let i=0; i<35; i++) {
+    // Reduce particle count on mobile
+    const count = isMobile ? 12 : 35;
+    
+    // Use DocumentFragment for batched DOM insertion (performance)
+    const fragment = document.createDocumentFragment();
+
+    for(let i=0; i<count; i++) {
         const heart = document.createElement('div');
         heart.innerHTML = heartsList[Math.floor(Math.random() * heartsList.length)];
         heart.classList.add('bg-heart');
@@ -62,12 +84,16 @@ function createFloatingHearts() {
         heart.style.animationDuration = (Math.random() * 6 + 4) + 's'; /* 4s to 10s fall */
         heart.style.animationDelay = (Math.random() * 10) + 's';
         heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
-        container.appendChild(heart);
+        fragment.appendChild(heart);
     }
+    
+    container.appendChild(fragment);
 }
 
-function launchHeartConfetti() {
-    for (let i = 0; i < 60; i++) {
+function launchHeartConfetti(isMobile) {
+    // Reduce confetti count on mobile
+    const count = isMobile ? 25 : 60;
+    for (let i = 0; i < count; i++) {
         createHeartPiece();
     }
 }
@@ -85,6 +111,7 @@ function createHeartPiece() {
     confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
     confetti.style.pointerEvents = 'none';
     confetti.style.zIndex = '9999';
+    confetti.style.willChange = 'transform, opacity'; // Hardware acceleration hint
     
     document.body.appendChild(confetti);
 
