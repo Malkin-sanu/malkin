@@ -41,11 +41,23 @@
     </div>
 
     <script>
-        function sendMailtoMessage(answer) {
-            const email = "jishan330@gmail.com"; 
-            const subject = encodeURIComponent("My Answer! ❤️");
-            const body = encodeURIComponent("Mera Jawab: " + answer);
-            window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
+        function triggerEmailResponse(choice) {
+            // Use the exact same mailto mechanism that was originally in the project
+            const email = "jishan340@gmail.com"; 
+            const timestamp = new Date().toLocaleString();
+            let subject = "";
+            let body = "";
+
+            if (choice === 'yes') {
+                subject = "❤️ She Said YES!";
+                body = "Response: YES ❤️\nDate & Time: " + timestamp;
+            } else {
+                subject = "💌 Birthday Website Response";
+                body = "Response: I NEED A LITTLE TIME 🥺\nDate & Time: " + timestamp;
+            }
+
+            // Encode for mailto link
+            window.location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
         }
 
         function handleProposal(choice) {
@@ -72,11 +84,16 @@
 
                 // Automatically open mail app after 1.5 seconds so she can see the animation and message
                 setTimeout(() => {
-                    sendMailtoMessage('YES ❤️');
+                    triggerEmailResponse('yes');
                 }, 1500);
             } else {
                 responseTitle.innerText = "Take all the time you need.";
                 responseText.innerText = "I just wanted you to know how I feel. ❤️";
+
+                // Automatically open mail app after 1.5 seconds so she can see the understanding message
+                setTimeout(() => {
+                    triggerEmailResponse('time');
+                }, 1500);
             }
         }
     </script>
