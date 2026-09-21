@@ -70,9 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function createFloatingHearts(isMobile) {
     const container = document.body;
     const heartsList = ['❤️', '💖', '💕', '💑', '👩‍❤️‍👨', '🌹', '✨'];
-    // Reduce particle count on mobile
-    const count = isMobile ? 12 : 35;
+    // Completely disable particle layer on mobile for max performance
+    const count = isMobile ? 0 : 35;
     
+    if (count === 0) return; // Exit early
+
     // Use DocumentFragment for batched DOM insertion (performance)
     const fragment = document.createDocumentFragment();
 
