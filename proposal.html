@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Last Question...</title>
+    <title>Euta Antim Prashna...</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,17 +19,17 @@
         </div>
 
         <div class="max-w-2xl w-full bg-white/90 md:bg-white/20 backdrop-blur-none md:backdrop-blur-xl rounded-3xl shadow-none md:shadow-[0_8px_32px_0_rgba(255,105,180,0.4)] border border-pink-200 md:border-white/40 text-center p-8 md:p-12 transform transition-all duration-1000 z-10" style="will-change: transform, opacity;">
-            <p class="text-sm md:text-base text-pink-500 md:text-pink-100 font-semibold tracking-widest uppercase mb-4 md:opacity-90">And finally… ❤️</p>
-            <p class="text-lg md:text-xl text-pink-700 md:text-white drop-shadow-none md:drop-shadow-md font-medium mb-8">There’s something I’ve been wanting to ask you...</p>
+            <p class="text-sm md:text-base text-pink-500 md:text-pink-100 font-semibold tracking-widest uppercase mb-4 md:opacity-90">Ani antama… ❤️</p>
+            <p class="text-lg md:text-xl text-pink-700 md:text-white drop-shadow-none md:drop-shadow-md font-medium mb-8">Ma tapai lai euta kura sodhna chahanchu...</p>
             
-            <h2 class="text-4xl md:text-6xl font-bold text-pink-600 md:text-white drop-shadow-none md:drop-shadow-lg heading-font mb-12 leading-tight">Will you be my girlfriend? 🥺❤️</h2>
+            <h2 class="text-4xl md:text-6xl font-bold text-pink-600 md:text-white drop-shadow-none md:drop-shadow-lg heading-font mb-12 leading-tight">Ke timi mero girlfriend banchau? 🥺❤️</h2>
             
             <div id="proposal-buttons" class="flex flex-col md:flex-row gap-4 justify-center items-center">
                 <button onclick="handleProposal('yes')" class="w-full md:w-auto bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-10 rounded-full shadow-md md:shadow-xl transform transition hover:scale-105 active:scale-95 text-lg">
-                    YES ❤️
+                    Hunxa ❤️
                 </button>
                 <button onclick="handleProposal('time')" class="w-full md:w-auto bg-rose-100 md:bg-white/20 hover:bg-rose-200 md:hover:bg-white/30 text-rose-700 md:text-white border border-rose-200 md:border-white/50 backdrop-blur-none md:backdrop-blur-none md:backdrop-blur-sm font-semibold py-4 px-10 rounded-full shadow-none md:shadow-lg transform transition hover:scale-105 active:scale-95 text-lg">
-                    I NEED A LITTLE TIME 🥺
+                    MALAI KEHI SAMAYA CHAHINCHA 🥺
                 </button>
             </div>
 
@@ -75,8 +75,8 @@
             responseDiv.classList.add('opacity-100');
 
             if (choice === 'yes') {
-                responseTitle.innerText = "You just made me the happiest person. ❤️";
-                responseText.innerText = "Thank you for choosing me. 🥹❤️";
+                responseTitle.innerText = "Timile malai sabaibhanda khusi manche banayau. ❤️";
+                responseText.innerText = "Malai rojekoma dhanyabad. 🥹❤️";
                 
                 if(typeof launchHeartConfetti === 'function') {
                     launchHeartConfetti();
@@ -87,8 +87,8 @@
                     triggerEmailResponse('yes');
                 }, 1500);
             } else {
-                responseTitle.innerText = "Take all the time you need.";
-                responseText.innerText = "I just wanted you to know how I feel. ❤️";
+                responseTitle.innerText = "Timilai jati samaya chahincha liga.";
+                responseText.innerText = "Ma matra timilai mero manko kura thaha hos bhanna chahanthe. ❤️";
 
                 // Automatically open mail app after 1.5 seconds so she can see the understanding message
                 setTimeout(() => {
