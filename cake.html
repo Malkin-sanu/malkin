@@ -7,14 +7,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center py-10 px-4 text-center relative overflow-x-hidden">
+<body class="min-h-screen flex flex-col items-center justify-center py-4 px-4 text-center relative overflow-x-hidden">
 
-    <div class="fade-in max-w-lg z-10 relative">
-        <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-md heading-font mb-4">Euta Wish Maga, Mero Maya! ✨</h1>
-        <p class="text-pink-100 font-medium mb-10 text-lg">Candle haru ma click gara unlai nibhauna ko lagi!</p>
+    <div class="fade-in w-full max-w-lg z-10 relative flex flex-col items-center justify-between min-h-[85vh] md:min-h-[auto] py-4">
         
-        <!-- The Cake -->
-        <div class="cake relative">
+        <!-- Header Section -->
+        <div class="flex-shrink-0 w-full mb-8 mt-2">
+            <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-md heading-font mb-2 leading-tight">Euta Wish Maga, Mero Maya! ✨</h1>
+            <p class="text-pink-100 font-medium text-base md:text-lg px-2">Candle haru ma click gara unlai nibhauna ko lagi!</p>
+        </div>
+        
+        <!-- The Cake Section with added top margin to prevent flame overlap -->
+        <div class="cake relative transform scale-75 md:scale-100 origin-center my-8 flex-shrink-0" style="margin-top: 50px; margin-bottom: 20px;">
             <div class="candle candle-1">
                 <div class="flame"></div>
             </div>
@@ -27,18 +31,19 @@
         </div>
 
         <!-- Hidden Message that appears after candles are blown out -->
-        <div id="final-message" class="hidden-message mt-8 md:mt-12">
-            <h2 class="text-5xl md:text-6xl font-bold text-white drop-shadow-md heading-font mb-4 pulse">Janmadinko Shubhakamana Sanu! ❤️</h2>
-            <p class="text-xl md:text-2xl text-white drop-shadow-md font-medium">Ma timilai dherai maya garchu.</p>
-            <p class="text-base md:text-lg text-pink-100 mt-2">Dua garchu ki tapai ko harek chahana pura hos, mero harek dua ko sath.</p>
+        <div id="final-message" class="hidden-message w-full flex-shrink-0 mt-2">
+            <h2 class="text-4xl md:text-5xl font-bold text-white drop-shadow-md heading-font mb-3 pulse">Janmadinko Shubhakamana MALKIN! ❤️</h2>
+            <p class="text-xl md:text-2xl text-white drop-shadow-md font-medium mb-1">Ma timilai dherai maya garchu.</p>
+            <p class="text-base md:text-lg text-pink-100 mt-1 px-4">Dua garchu ki tapai ko harek chahana pura hos, mero harek dua ko sath.</p>
             
-            <a href="proposal.html" class="inline-block mt-8 bg-white text-pink-500 hover:bg-red-50 text-lg font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg pulse">
+            <a href="proposal.html" class="inline-block mt-6 bg-white text-pink-500 hover:bg-red-50 text-lg md:text-xl font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg pulse">
                 Euta Antim Prashna... ➔
             </a>
         </div>
         
-        <div class="mt-16 text-pink-200">
-            <a href="wishes.html" class="hover:text-white drop-shadow-md transition font-medium">⬅ Dil Ka Kuraharu</a>
+        <!-- Bottom Nav -->
+        <div class="mt-auto pt-8 pb-2 text-pink-200 flex-shrink-0 w-full">
+            <a href="wishes.html" class="text-base md:text-lg hover:text-white drop-shadow-md transition font-medium px-4 py-2">⬅ Dil Ka Kuraharu</a>
         </div>
     </div>
 
